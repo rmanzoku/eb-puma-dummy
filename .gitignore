@@ -1,4 +1,11 @@
-
+# Dev
 .direnv/
 run/*
 !run/.gitkeep
+
+# Build
+.bundle/
+vendor/
+REVISION
+dist/
+sample-rackup.zip
