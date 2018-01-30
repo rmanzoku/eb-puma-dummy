@@ -1,9 +1,14 @@
+# frozen_string_literal: true
+
 require 'json'
 
 app = proc do |env|
-  puts JSON.dump(env)
-  body = 'Hello, World!'
-  [200, { 'Content-Type' => 'text/plain', 'Content-Length' => body.length.to_s }, [body]]
+  body = JSON.dump(env)
+  header = {
+    'Content-Type' => 'application/json',
+    'Content-Length' => body.length.to_s,
+  }
+  [200, header, [body]]
 end
 
 run app
